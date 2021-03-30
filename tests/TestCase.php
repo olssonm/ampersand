@@ -4,6 +4,7 @@ namespace Olssonm\Ampersand\Tests;
 
 use Olssonm\Ampersand\AmpersandServiceProvider;
 use \Orchestra\Testbench\TestCase as Orchestra;
+use Spatie\Sheets\SheetsServiceProvider;
 
 class TestCase extends Orchestra
 {
@@ -16,6 +17,7 @@ class TestCase extends Orchestra
     {
         return [
             AmpersandServiceProvider::class,
+            SheetsServiceProvider::class
         ];
     }
 
