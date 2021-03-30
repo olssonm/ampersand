@@ -3,7 +3,9 @@
 namespace Olssonm\Ampersand\Tests;
 
 use Illuminate\Support\Facades\Artisan;
+use Olssonm\Ampersand\Models\Post;
 use Olssonm\Ampersand\Tests\TestCase;
+use Spatie\Sheets\Sheets;
 
 class InstallTest extends TestCase
 {
@@ -17,6 +19,16 @@ class InstallTest extends TestCase
         $output = Artisan::output();
         $this->assertStringContainsString('Copied File', $output);
         $this->assertStringContainsString('Copied Directory', $output);
+
+        $this->app['config']->set('sheets.collections', [
+            'posts' => [
+                'disk' => 'ampersand::posts',
+                'sheet_class' => Post::class,
+                'path_parser' => SlugWithDateParser::class,
+                'content_parser' => MarkdownWithFrontMatterParser::class,
+                'extension' => 'md',
+            ]
+        ]);
     }
 
     /**

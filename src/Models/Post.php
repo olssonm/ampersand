@@ -27,6 +27,6 @@ class Post extends Model
 
     public static function __callStatic($name, $arguments)
     {
-        return call_user_func_array([app(PostRepository::class)->all(), $name], $arguments);
+        return call_user_func_array([app(PostRepository::class), $name], $arguments);
     }
 }
