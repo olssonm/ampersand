@@ -27,7 +27,7 @@ class CommandTest extends TestCase
         // Check the newly created post
         $post = Post::find(Str::slug($title));
         $this->assertInstanceOf(Post::class, $post);
-        $this->assertStringContainsString($date, $post->date);
+        $this->assertStringContainsString($date->format('Y-m-d'), $post->date->format('Y-m-d'));
         $this->assertEquals(Str::slug($title), $post->slug);
         $this->assertEquals($title, $post->title);
     }

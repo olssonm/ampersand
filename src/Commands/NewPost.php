@@ -4,6 +4,7 @@ namespace Olssonm\Ampersand\Commands;
 
 use Illuminate\Console\Command;
 use Illuminate\Support\Str;
+use Illuminate\Support\Facades\File;
 
 class NewPost extends Command
 {
@@ -22,7 +23,10 @@ class NewPost extends Command
         $content = Str::of($content)->replace('%title%', $title)
             ->replace('%date%', $date);
 
-        file_put_contents(config('ampersand.posts_path') . '/' . $file, $content);
+        $directory = config('ampersand.posts_path');
+        File::ensureDirectoryExists($directory);
+
+        file_put_contents($directory . '/' . $file, $content);
 
         $this->info(sprintf('Created post "%s"', $title));
     }

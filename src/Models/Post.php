@@ -2,6 +2,7 @@
 
 namespace Olssonm\Ampersand\Models;
 
+use Carbon\Carbon;
 use Olssonm\Ampersand\Repositories\PostRepository;
 use Olssonm\Ampersand\Services\Model;
 
@@ -20,6 +21,11 @@ class Post extends Model
     public function getUrlAttribute(): string
     {
         return route('ampersand.show', $this->slug);
+    }
+
+    public function getDateAttribute()
+    {
+        return Carbon::parse($this->attributes['date']);
     }
 
     public static function __callStatic($name, $arguments)
