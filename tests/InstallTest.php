@@ -19,25 +19,25 @@ class InstallTest extends TestCase
         $output = Artisan::output();
         $this->assertStringContainsString('Copied File', $output);
         $this->assertStringContainsString('Copied Directory', $output);
-
-        $this->app['config']->set('sheets.collections', [
-            'posts' => [
-                'disk' => 'ampersand::posts',
-                'sheet_class' => Post::class,
-                'path_parser' => SlugWithDateParser::class,
-                'content_parser' => MarkdownWithFrontMatterParser::class,
-                'extension' => 'md',
-            ]
-        ]);
     }
 
     /**
      * @test
-     * @depends package_config_can_be_installed
      */
     public function config_is_correct()
     {
         $this->assertIsArray(config('ampersand'));
         $this->assertEquals(base_path('posts'), config('ampersand.posts_path'));
+        $this->assertEquals('page', config('ampersand.page_indicator'));
+    }
+
+    /**
+     * @test
+     */
+    public function config_is_editable()
+    {
+        $this->app['config']->set('ampersand.posts_path', resource_path('posts'));
+
+        $this->assertEquals(resource_path('posts'), config('ampersand.posts_path'));
     }
 }

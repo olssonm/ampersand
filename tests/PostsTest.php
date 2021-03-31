@@ -31,13 +31,17 @@ class PostsTest extends TestCase
         $this->assertEquals('post-2', $post->slug);
         $this->assertEquals('My blogpost', $post->title);
         $this->assertEquals('https://amazingimages/my-cover.jpg', $post->cover);
+        $this->assertEquals('http://localhost/blog/post-2', $post->url);
         $this->assertStringContainsString('<p>This is just some random content.</p', (string) $post->contents);
     }
 
     /** @test */
-    public function post_can_paginate()
+    public function posts_can_paginate()
     {
         $posts = Post::paginate();
+        $this->assertEquals(2, $posts->total());
+        $this->assertEquals(1, $posts->currentPage());
+        $this->assertEquals('http://localhost/blog?page=1', $posts->url(1));
     }
 
     protected function getEnvironmentSetUp($app)
