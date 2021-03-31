@@ -1,23 +1,13 @@
-<p align="center"><img src="https://user-images.githubusercontent.com/907114/113181484-20c9c600-9252-11eb-9e13-7c361f4f5134.png" width="120px" alt="Ampersand – Blogging for Laravel" /></p>
-
-<p align="center">
-    <a href="https://packagist.org/packages/olssonm/ampersand">
-        <img src="https://img.shields.io/packagist/v/olssonm/ampersand.svg?style=flat-square" alt="Latest Version on Packagist">
-    </a>
-    <a href="https://packagist.org/packages/olssonm/ampersand">
-        <img src="https://img.shields.io/packagist/php-v/olssonm/ampersand?style=flat-square" alt="Supported PHP-versions">
-    </a>
-    <a href="LICENSE.md">
-        <img src="https://img.shields.io/badge/license-MIT-brightgreen.svg?style=flat-square" alt="Software License">
-    </a>
-    <a href="https://github.com/olssonm/ampersand/actions?query=workflow%3A%22Run+tests%22">
-        <img src="https://img.shields.io/github/workflow/status/olssonm/ampersand/Run%20tests.svg?style=flat-square&label=tests" alt="Build Status">
-    </a>
-</p>
+<p><img src="https://user-images.githubusercontent.com/907114/113181484-20c9c600-9252-11eb-9e13-7c361f4f5134.png" width="120px" alt="Ampersand – Blogging for Laravel" /></p>
 
 # Ampersand
 
-Plug-and-play flat file markdown blog tool for your Laravel-project. Perfect for when you want to have an article/blog-section on your site withough the hassle of setting up tables, models or your own flat file-system.
+[![Latest Version on Packagist](https://img.shields.io/packagist/v/olssonm/ampersand.svg?style=flat-square)](https://packagist.org/packages/olssonm/ampersand)
+[![Supported PHP-versions](https://img.shields.io/packagist/php-v/olssonm/ampersand?style=flat-square)](https://packagist.org/packages/olssonm/ampersand)
+[![Build Status](https://img.shields.io/github/workflow/status/olssonm/ampersand/Run%20tests.svg?style=flat-square&label=tests)](https://github.com/olssonm/ampersand/actions?query=workflow%3A%22Run+tests%22)
+[![Software License](https://img.shields.io/badge/license-MIT-brightgreen.svg?style=flat-square)](LICENSE.md)
+
+Plug-and-play flat file markdown blog tool for your Laravel-project. When you want to have an article/blog-section on your site withough the hassle of setting up tables, models or your own flat file-system.
 
 Built upon [spatie/sheets](https://github.com/spatie/sheets) to handle the markdown-files and YAML-front matter parsing.
 
