@@ -2,16 +2,13 @@
 
 namespace Olssonm\Ampersand;
 
-use Illuminate\Support\Facades\Route;
-use Illuminate\Support\Collection;
 use Illuminate\Support\ServiceProvider;
-use Olssonm\Ampersand\Macros\CollectionMixin;
+use Olssonm\Ampersand\Commands\NewPost;
 use Olssonm\Ampersand\Models\Post;
 use Olssonm\Ampersand\Providers\RouteServiceProvider;
 use Olssonm\Ampersand\Repositories\PostRepository;
 use Spatie\Sheets\ContentParsers\MarkdownWithFrontMatterParser;
 use Spatie\Sheets\PathParsers\SlugWithDateParser;
-use Spatie\Sheets\SheetsServiceProvider;
 
 class AmpersandServiceProvider extends ServiceProvider
 {
@@ -27,6 +24,7 @@ class AmpersandServiceProvider extends ServiceProvider
     {
         $this->setup();
         $this->registerRepositories();
+        $this->registerCommands();
 
         $this->app->register(RouteServiceProvider::class);
     }
@@ -61,5 +59,12 @@ class AmpersandServiceProvider extends ServiceProvider
     private function registerRepositories()
     {
         $this->app->singleton(PostRepository::class);
+    }
+
+    private function registerCommands()
+    {
+        $this->commands([
+            NewPost::class
+        ]);
     }
 }
