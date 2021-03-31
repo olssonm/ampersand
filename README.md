@@ -1,6 +1,6 @@
 # Ampersand
 
-Super simple plug-and-play flat file markdown blog tool for your Laravel-projekt. Perfect for when you want to have an article/blog-section on your site withough the hassle of setting up tables, models or your own flat file-system.
+Super simple plug-and-play flat file markdown blog tool for your Laravel-project. Perfect for when you want to have an article/blog-section on your site withough the hassle of setting up tables, models or your own flat file-system.
 
 Built upon [spatie/sheets](https://github.com/spatie/sheets) to handle the markdown-files and YAML-front matter parsing.
 
@@ -17,16 +17,16 @@ $ composer require olssonm/ampersand
 Publish config-files and views:
 
 ```
-$ php artisan vendor:publish --provider="\Olssonm\Ampersand\AmpersandProvider"
+$ php artisan vendor:publish --provider="\Olssonm\Ampersand\AmpersandServiceProvider"
 ```
 
-In `config/ampersand.php` you can now customize your settings.
+In `config/ampersand.php` you can now customize the settings to your liking. Views are available at `resources/views/vendor/ampersand`
 
 ## Writing posts
 
 ### Filename format
 
-All posts should be stores in your `posts_path`-directory with the filename format of `2021-03-30.my-post.md`, i.e. `date:{Y-m-d}.{slug}.md`.
+All posts should be stores in your `posts_path`-directory with the filename format of `2021-03-30.my-post.md`, i.e. `{date:Y-m-d}.{slug}.md`.
 
 The slug is what determins at what URL your post will be available at.
 
@@ -96,3 +96,9 @@ Route::group(['middleware' => 'can:read', function() {
     Route::get('/articles/{post}', [PostController::class, 'show'])->name('article.show');
 }]);
 ```
+
+## License
+
+The MIT License (MIT). Please see the [LICENSE.md](LICENSE.md) for more information.
+
+© 2021 [Marcus Olsson](https://marcusolsson.me).
