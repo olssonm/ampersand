@@ -12,6 +12,11 @@ class Post extends Model
         return $this->slug;
     }
 
+    public function getRouteKeyName()
+    {
+        return 'slug';
+    }
+
     public function getUrlAttribute(): string
     {
         return route('ampersand.show', $this->slug);

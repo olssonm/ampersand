@@ -17,7 +17,10 @@ class PostController
     public function index()
     {
         return view('ampersand::index', [
-            'posts' => $this->postRepository->paginate(10)->get()
+            'posts' => $this->postRepository->paginate(
+                config('ampersand.per_page'),
+                config('ampersand.page_indicator'),
+            )
         ]);
     }
 
