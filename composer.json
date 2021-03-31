@@ -31,8 +31,8 @@
     },
     "scripts": {
         "test": "./vendor/bin/phpunit --no-coverage",
-        "phpsniff": "vendor/bin/phpcs --standard=\"PSR12\" ./src",
-        "phpfix": "vendor/bin/phpcbf --standard=\"PSR12\" ./src",
+        "phpsniff": "vendor/bin/phpcs --standard=\"PSR12\" ./src --ignore=./src/resources/*",
+        "phpfix": "vendor/bin/phpcbf --standard=\"PSR12\" ./src --ignore=./src/resources/*",
         "post-autoload-dump": [
             "@php ./vendor/bin/testbench package:discover --ansi"
         ]
