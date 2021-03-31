@@ -1,5 +1,7 @@
 <?php
 
+namespace Olssonm\Ampersand\Tests;
+
 use Olssonm\Ampersand\Models\Post;
 use Olssonm\Ampersand\Tests\TestCase;
 use Spatie\Sheets\ContentParsers\MarkdownWithFrontMatterParser;

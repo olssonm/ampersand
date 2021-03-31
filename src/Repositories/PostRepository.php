@@ -36,7 +36,7 @@ class PostRepository
             null,
             [
                 'pageName' => $pageName,
-                'path' => route('ampersand.index'),
+                'path' => request()->getBasePath()
             ]
         );
     }

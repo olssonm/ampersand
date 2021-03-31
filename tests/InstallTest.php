@@ -3,9 +3,7 @@
 namespace Olssonm\Ampersand\Tests;
 
 use Illuminate\Support\Facades\Artisan;
-use Olssonm\Ampersand\Models\Post;
 use Olssonm\Ampersand\Tests\TestCase;
-use Spatie\Sheets\Sheets;
 
 class InstallTest extends TestCase
 {

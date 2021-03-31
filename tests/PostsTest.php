@@ -1,11 +1,11 @@
 <?php
 
-use Illuminate\Support\Facades\Artisan;
+namespace Olssonm\Ampersand\Tests;
+
 use Olssonm\Ampersand\Models\Post;
 use Olssonm\Ampersand\Tests\TestCase;
 use Spatie\Sheets\ContentParsers\MarkdownWithFrontMatterParser;
 use Spatie\Sheets\PathParsers\SlugWithDateParser;
-use Spatie\Sheets\Sheets;
 
 class PostsTest extends TestCase
 {
@@ -29,7 +29,7 @@ class PostsTest extends TestCase
         $post = Post::find('post-2');
         $this->assertEquals('2020-02-01 20:00:01', $post->date);
         $this->assertEquals('post-2', $post->slug);
-        $this->assertEquals('My blogpost', $post->title);
+        $this->assertEquals('My second blogpost', $post->title);
         $this->assertEquals('https://amazingimages/my-cover.jpg', $post->cover);
         $this->assertEquals('http://localhost/blog/post-2', $post->url);
         $this->assertStringContainsString('<p>This is just some random content.</p', (string) $post->contents);
@@ -38,10 +38,11 @@ class PostsTest extends TestCase
     /** @test */
     public function posts_can_paginate()
     {
-        $posts = Post::paginate();
+        $posts = Post::paginate(1);
         $this->assertEquals(2, $posts->total());
         $this->assertEquals(1, $posts->currentPage());
-        $this->assertEquals('http://localhost/blog?page=1', $posts->url(1));
+        $this->assertEquals('?page=2', $posts->nextPageUrl());
+        $this->assertEquals('?page=2', $posts->url(2));
     }
 
     protected function getEnvironmentSetUp($app)

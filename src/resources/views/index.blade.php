@@ -25,7 +25,9 @@
                 </div>
             @endforeach
             {{-- The $posts-variable is a paginator-instance --}}
-            {{-- {!! $posts->links() !!} --}}
+            <!--
+                {!! $posts->links() !!}
+            -->
         </div>
     </div>
 </body>
