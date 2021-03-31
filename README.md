@@ -61,7 +61,7 @@ My post
 
 ## Displaying posts
 
-Two views are shipped with this package; nd index-view and a show-view (used for single posts). They are located in `/resources/vendor/views/ampersand` after installation and are fully customizable.
+Two views are shipped with this package; an index-view and a show-view (used for single posts). They are located in `/resources/vendor/views/ampersand` after installation and are fully customizable.
 
 In `index.blade.php` a collection of post-objects is available via the `$posts`-variable. It behaves much as a standard Eloquent-collection.
 
@@ -89,7 +89,22 @@ The Post-object contains all your front matter attributes as well as `slug`, `da
 {{ $post->cover }} // https://amazingimages.com/my-cover.jpg
 ```
 
-## Defining your own routes
+## Routes
+
+The package routes are `ampersand.index` and `ampsersand.show`:
+
+```php
+{{ route('ampersand.index') }} // http://mysite.test/blog
+
+@foreach ($posts as $post)
+    // The show-route accepts either a Olssonm\Ampersand\Models\Post-object
+    // or a string; the post's slug
+    {{ route('ampersand.show', $post) }} // http://mysite.test/blog/post-slug
+    {{ route('ampersand.show', 'post-slug') }} // http://mysite.test/blog/post-slug
+@endforeach
+```
+
+### Defining your own routes
 
 The default routes are registered withing the ampersand-name and the default web-middleware.
 
@@ -102,6 +117,10 @@ Route::group(['middleware' => 'can:read', function() {
     Route::get('/articles', [PostController::class, 'index'])->name('article.index');
     Route::get('/articles/{post}', [PostController::class, 'show'])->name('article.show');
 }]);
+```
+
+```php
+{{ route('article.index') }} // http://mysite.test/articles
 ```
 
 ## License
