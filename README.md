@@ -80,7 +80,7 @@ Pagination-links are also available:
 {{ $posts->links() }}
 ```
 
-The Post-object contains all your front matter attributes as well as `slug`, `date` and `content`.
+The Post-object contains all your front matter attributes as well as `slug`, `date` and `contents`.
 
 ``` php
 {{ $post->slug }} // my-post
