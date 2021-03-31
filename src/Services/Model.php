@@ -9,7 +9,11 @@ use Spatie\Sheets\Sheet;
 
 abstract class Model extends Sheet implements UrlRoutable
 {
-    public function resolveRouteBinding($value, $field = null) {}
+    public function resolveRouteBinding($value, $field = null)
+    {
+    }
 
-    public function resolveChildRouteBinding($childType, $value, $field){}
+    public function resolveChildRouteBinding($childType, $value, $field)
+    {
+    }
 }

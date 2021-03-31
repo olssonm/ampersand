@@ -1,5 +1,10 @@
 # Ampersand
 
+[![Latest Version on Packagist](https://img.shields.io/packagist/v/olssonm/ampersand.svg?style=flat-square)](https://packagist.org/packages/olssonm/ampersand)
+[![Supported PHP-versions](https://img.shields.io/packagist/php-v/olssonm/ampersand?style=flat-square)](https://packagist.org/packages/olssonm/ampersand)
+[![Software License](https://img.shields.io/badge/license-MIT-brightgreen.svg?style=flat-square)](LICENSE.md)
+[![Build Status](https://img.shields.io/github/workflow/status/olssonm/ampersand/Run%20tests.svg?style=flat-square&label=tests)](https://github.com/olssonm/ampersand/actions?query=workflow%3A%22Run+tests%22)
+
 Super simple plug-and-play flat file markdown blog tool for your Laravel-project. Perfect for when you want to have an article/blog-section on your site withough the hassle of setting up tables, models or your own flat file-system.
 
 Built upon [spatie/sheets](https://github.com/spatie/sheets) to handle the markdown-files and YAML-front matter parsing.
@@ -77,8 +82,9 @@ The Post-object contains all your front matter attributes as well as `slug`, `da
 
 ``` php
 {{ $post->slug }} // my-post
-{{ $post->date }} // 2021-03-30
+{{ $post->date->format('Y-m-d') }} // 2021-03-30
 {{ $post->content }} // <p>My post</p>
+{{ $post->cover }} // <p>https://amazingimages/my-cover.jpg</p>
 ```
 
 ## Defining your own routes

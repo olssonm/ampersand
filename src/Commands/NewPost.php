@@ -3,7 +3,6 @@
 namespace Olssonm\Ampersand\Commands;
 
 use Illuminate\Console\Command;
-
 use Illuminate\Support\Str;
 
 class NewPost extends Command
