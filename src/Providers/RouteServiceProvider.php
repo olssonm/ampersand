@@ -10,7 +10,7 @@ use Spatie\Sheets\Sheets;
 
 class RouteServiceProvider extends ServiceProvider
 {
-    public function boot()
+    public function boot(): void
     {
         Route::bind('post', function ($slug, $route) {
             return $this->app->make(PostRepository::class)->find($slug);

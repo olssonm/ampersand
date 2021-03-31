@@ -7,22 +7,14 @@ use Olssonm\Ampersand\Services\Model;
 
 class Post extends Model
 {
-    public function getRouteKey()
+    public function getRouteKey(): string
     {
         return $this->slug;
     }
 
-    public function getUrlAttribute()
+    public function getUrlAttribute(): string
     {
         return route('ampersand.show', $this->slug);
-    }
-
-    public function getAuthorAttribute()
-    {
-        if (isset($this->attributes['author'])) {
-            return $this->attributes['author'];
-        }
-        return config('ampersand.author');
     }
 
     public static function __callStatic($name, $arguments)

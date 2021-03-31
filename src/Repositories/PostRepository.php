@@ -25,7 +25,7 @@ class PostRepository
         return $post;
     }
 
-    public function paginate($perPage = 10, $pageName = 'page')
+    public function paginate($perPage = 10, $pageName = 'page'): LengthAwarePaginator
     {
         $page = LengthAwarePaginator::resolveCurrentPage($pageName, 1);
 
@@ -36,7 +36,7 @@ class PostRepository
             null,
             [
                 'pageName' => $pageName,
-                'path' => request()->getUri(),
+                'path' => route('ampersand.index'),
             ]
         );
     }
