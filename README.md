@@ -91,7 +91,7 @@ The Post-object contains all your front matter attributes as well as `slug`, `da
 
 ### 🚦 Routes
 
-The package routes are `ampersand.index` and `ampsersand.show`:
+The package routes are `ampersand.index` and `ampersand.show`:
 
 ```php
 {{ route('ampersand.index') }} // http://mysite.test/blog
