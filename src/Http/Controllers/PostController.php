@@ -7,7 +7,7 @@ use Olssonm\Ampersand\Repositories\PostRepository;
 
 class PostController
 {
-    protected $postRepository;
+    protected PostRepository $postRepository;
 
     public function __construct(PostRepository $postRepository)
     {

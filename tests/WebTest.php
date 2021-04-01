@@ -14,7 +14,11 @@ class WebTest extends TestCase
     {
         $response = $this->get(route('ampersand.index'));
         $response->assertStatus(200)
-            ->assertSeeText(Post::all()->first()->title);
+            ->assertSeeText(Post::all()->first()->title)
+            ->assertViewHas('posts', Post::paginate(
+                config('ampersand.per_page'),
+                config('ampersand.page_indicator'),
+            ));
     }
 
     /** @test */
@@ -22,7 +26,8 @@ class WebTest extends TestCase
     {
         $response = $this->get(route('ampersand.show', Post::all()->first()));
         $response->assertStatus(200)
-            ->assertSeeText(Post::all()->first()->title);
+            ->assertSeeText(Post::all()->first()->title)
+            ->assertViewHas('post', Post::all()->first());
     }
 
     /** @test */
