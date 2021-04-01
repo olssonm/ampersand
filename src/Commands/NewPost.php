@@ -12,7 +12,7 @@ class NewPost extends Command
 
     protected $description = 'Create a new post';
 
-    public function handle()
+    public function handle(): void
     {
         $title = $this->ask('Title of your new post');
         $date = now();

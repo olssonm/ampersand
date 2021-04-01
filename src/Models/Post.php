@@ -13,7 +13,7 @@ class Post extends Model
         return $this->slug;
     }
 
-    public function getRouteKeyName()
+    public function getRouteKeyName(): string
     {
         return 'slug';
     }
@@ -23,7 +23,7 @@ class Post extends Model
         return route('ampersand.show', $this->slug);
     }
 
-    public function getDateAttribute()
+    public function getDateAttribute(): Carbon
     {
         return Carbon::parse($this->attributes['date']);
     }
