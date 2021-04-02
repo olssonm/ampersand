@@ -106,9 +106,9 @@ The package routes are `ampersand.index` and `ampersand.show`:
 
 #### Defining your own routes
 
-The default routes are registered withing the ampersand-name and the default web-middleware.
+The default routes are registered withing the ampersand-name and the default web-middleware group.
 
-If you by any reason want to override this (for example if you want to have your articles behind a login or the like), you may set `register_routes` to `false` in ampersand.php, and then register them yourself:
+If you by any reason want to override this (for example if you want to have your articles behind a login or maybe you don't use the standard web-middleware group), you may set `register_routes` to `false` in ampersand.php, and then register them yourself:
 
 ``` php
 // /routes/web.php
