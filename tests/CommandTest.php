@@ -11,7 +11,7 @@ use Illuminate\Support\Str;
 class CommandTest extends TestCase
 {
     /** @test */
-    public function command_creates_new_post()
+    public function it_can_create_new_post()
     {
         $title = 'Yet another test post';
         $date = now();

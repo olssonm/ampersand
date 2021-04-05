@@ -10,7 +10,7 @@ use Spatie\Sheets\PathParsers\SlugWithDateParser;
 class WebTest extends TestCase
 {
     /** @test */
-    public function index_exists()
+    public function it_can_show_index()
     {
         $response = $this->get(route('ampersand.index'));
         $response->assertStatus(200)
@@ -22,7 +22,7 @@ class WebTest extends TestCase
     }
 
     /** @test */
-    public function show_exists()
+    public function it_can_show_single_post()
     {
         $response = $this->get(route('ampersand.show', Post::all()->first()));
         $response->assertStatus(200)
@@ -31,7 +31,7 @@ class WebTest extends TestCase
     }
 
     /** @test */
-    public function pagination()
+    public function it_has_pagination_links()
     {
         $this->app['config']->set('ampersand.per_page', 1);
         $response = $this->get(route('ampersand.index'));

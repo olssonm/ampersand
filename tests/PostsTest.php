@@ -10,7 +10,7 @@ use Spatie\Sheets\PathParsers\SlugWithDateParser;
 class PostsTest extends TestCase
 {
     /** @test */
-    public function routes_exists()
+    public function it_has_routes()
     {
         $this->assertEquals('http://localhost/blog', route('ampersand.index'));
         $this->assertEquals('http://localhost/blog/post-1', route('ampersand.show', ['post' => 'post-1']));
@@ -18,13 +18,13 @@ class PostsTest extends TestCase
     }
 
     /** @test */
-    public function correct_number_of_posts()
+    public function it_has_the_correct_number_of_posts()
     {
         $this->assertEquals(2, Post::all()->count());
     }
 
     /** @test */
-    public function post_has_all_attributes()
+    public function it_has_post_with_correct_attributes()
     {
         $post = Post::find('post-2');
         $this->assertEquals('2020-02-01 20:00:01', $post->date);
@@ -36,7 +36,7 @@ class PostsTest extends TestCase
     }
 
     /** @test */
-    public function posts_can_paginate()
+    public function it_has_post_that_can_paginate()
     {
         $posts = Post::paginate(1);
         $this->assertEquals(2, $posts->total());

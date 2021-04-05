@@ -8,7 +8,7 @@ use Olssonm\Ampersand\Tests\TestCase;
 class InstallTest extends TestCase
 {
     /** @test */
-    public function package_config_can_be_installed()
+    public function it_can_be_installed()
     {
         Artisan::call('vendor:publish', [
             '--provider' => 'Olssonm\Ampersand\AmpersandServiceProvider'
@@ -22,7 +22,7 @@ class InstallTest extends TestCase
     /**
      * @test
      */
-    public function config_is_correct()
+    public function it_has_correct_config()
     {
         $this->assertIsArray(config('ampersand'));
         $this->assertEquals(base_path('posts'), config('ampersand.posts_path'));
@@ -32,7 +32,7 @@ class InstallTest extends TestCase
     /**
      * @test
      */
-    public function config_is_editable()
+    public function it_has_editable_config()
     {
         $this->app['config']->set('ampersand.posts_path', resource_path('posts'));
 
