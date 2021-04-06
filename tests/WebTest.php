@@ -45,6 +45,14 @@ class WebTest extends TestCase
             ->assertSee('?page=1');
     }
 
+    /** @test */
+    public function it_shows_404()
+    {
+        $response = $this->get(route('ampersand.show', 'no-post'));
+        $response->assertStatus(404)
+            ->assertSeeText('Not Found');
+    }
+
     protected function getEnvironmentSetUp($app)
     {
         $app['config']->set('filesystems.disks.ampersand::posts', [

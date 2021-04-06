@@ -36,7 +36,7 @@ class PostsTest extends TestCase
     }
 
     /** @test */
-    public function it_has_post_that_can_paginate()
+    public function it_can_paginate()
     {
         $posts = Post::paginate(1);
         $this->assertEquals(2, $posts->total());

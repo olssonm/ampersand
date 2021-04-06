@@ -14,10 +14,14 @@ class AmpersandServiceProvider extends ServiceProvider
 {
     public function boot()
     {
-        $this->publishes([
-            __DIR__ . '/config/ampersand.php' => config_path('ampersand.php'),
-            __DIR__ . '/resources/views' => resource_path('views/vendor/ampersand'),
-        ]);
+        if ($this->app->runningInConsole()) {
+            $this->publishes([
+                __DIR__ . '/config/ampersand.php' => config_path('ampersand.php')
+            ], 'config');
+            $this->publishes([
+                __DIR__ . '/resources/views' => resource_path('views/vendor/ampersand'),
+            ], 'views');
+        }
     }
 
     public function register()
@@ -33,10 +37,7 @@ class AmpersandServiceProvider extends ServiceProvider
     {
         $this->loadViewsFrom(__DIR__ . '/resources/views', 'ampersand');
 
-        $this->mergeConfigFrom(
-            __DIR__ . '/config/ampersand.php',
-            'ampersand'
-        );
+        $this->mergeConfigFrom(__DIR__ . '/config/ampersand.php', 'ampersand');
 
         // Add a disk to the filesystem
         $this->app['config']->set('filesystems.disks.ampersand::posts', [
