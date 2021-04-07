@@ -76,7 +76,7 @@ In `index.blade.php` a collection of post-objects is available via the `$posts`-
 
 Pagination-links are also available:
 
-```
+``` php
 {{ $posts->links() }}
 ```
 
@@ -93,7 +93,7 @@ The Post-object contains all your front matter attributes as well as `slug`, `da
 
 You can retrieve posts and filter them as a collection anywhere in your application using the Post-model:
 
-```
+``` php
 use Olssonm\Ampersand\Models\Post;
 
 // Reject posts where is_draft is true or has a date in the future
@@ -104,7 +104,7 @@ $posts = Post::all()->reject(function($item) {
 
 The posts are sorted by descending date per default, so to get the latest post:
 
-```
+``` php
 // Get first post
 $post = Post::all()->first();
 ```
@@ -126,7 +126,7 @@ The package routes are `ampersand.index` and `ampersand.show`:
 
 #### Defining your own routes
 
-The default routes are registered withing the ampersand-name and the default web-middleware group.
+The default routes are registered with the ampersand-name and the default web-middleware group.
 
 If you by any reason want to override this (for example if you want to have your articles behind a login or maybe you don't use the standard web-middleware group), you may set `register_routes` to `false` in ampersand.php, and then register them yourself:
 
