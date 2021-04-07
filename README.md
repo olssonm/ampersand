@@ -3,9 +3,9 @@
 # Ampersand
 
 [![Latest Version on Packagist](https://img.shields.io/packagist/v/olssonm/ampersand.svg?style=flat-square)](https://packagist.org/packages/olssonm/ampersand)
-[![Supported PHP-versions](https://img.shields.io/packagist/php-v/olssonm/ampersand?style=flat-square)](https://packagist.org/packages/olssonm/ampersand)
 [![Build Status](https://img.shields.io/github/workflow/status/olssonm/ampersand/Run%20tests.svg?style=flat-square&label=tests)](https://github.com/olssonm/ampersand/actions?query=workflow%3A%22Run+tests%22)
 [![Software License](https://img.shields.io/badge/license-MIT-brightgreen.svg?style=flat-square)](LICENSE.md)
+<!-- [![Supported PHP-versions](https://img.shields.io/packagist/php-v/olssonm/ampersand?style=flat-square)](https://packagist.org/packages/olssonm/ampersand)-->
 
 Plug-and-play flat file markdown blog tool for your Laravel-project. Create an article or blog-section on your site without the hassle of setting up tables, models or your own flat file-system.
 
