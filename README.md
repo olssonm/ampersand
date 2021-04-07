@@ -89,6 +89,26 @@ The Post-object contains all your front matter attributes as well as `slug`, `da
 {{ $post->cover }} // https://amazingimages.com/my-cover.jpg
 ```
 
+#### Retrieve posts in your application
+
+You can retrieve posts and filter them as a collection anywhere in your application using the Post-model:
+
+```
+use Olssonm\Ampersand\Models\Post;
+
+// Reject posts where is_draft is true or has a date in the future
+$posts = Post::all()->reject(function($item) {
+    return $item->is_draft || $post->date->lessThan(now());
+});
+```
+
+The posts are sorted by descending date per default, so to get the latest post:
+
+```
+// Get first post
+$post = Post::all()->first();
+```
+
 ### 🚦 Routes
 
 The package routes are `ampersand.index` and `ampersand.show`:
