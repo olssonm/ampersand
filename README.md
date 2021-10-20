@@ -143,6 +143,14 @@ Route::group(['middleware' => 'can:read', function() {
 {{ route('article.index') }} // http://mysite.test/articles
 ```
 
+### See it in action
+
+Sites in the wild that uses Ampersand
+
+[esignering.se/blogg](https://esignering.se/blogg)
+
+*Do you use Ampersand and want your site featured here? Submit a PR!*
+
 ### License
 
 The MIT License (MIT). Please see the [LICENSE.md](LICENSE.md) for more information.
