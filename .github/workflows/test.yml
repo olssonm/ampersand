@@ -10,13 +10,11 @@ jobs:
             matrix:
                 include:
                     - php: 8.1
-                      Laravel: ^8.0
+                      laravel: ^9.0
+                    - php: 8.1
+                      laravel: ^8.0
                     - php: 8.0
-                      Laravel: ^8.0
-                    - php: 7.4
-                      Laravel: ^8.0
-                    - php: 7.4
-                      Laravel: ^7.0
+                      laravel: ^8.0
 
         name: PHP ${{ matrix.php }} - Laravel ${{ matrix.laravel }}
 
