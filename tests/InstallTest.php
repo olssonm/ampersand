@@ -15,8 +15,16 @@ class InstallTest extends TestCase
         ]);
 
         $output = Artisan::output();
-        $this->assertStringContainsString('Copied File', $output);
-        $this->assertStringContainsString('Copied Directory', $output);
+
+        if ((int) app()->version()[0] >= 9) {
+            $this->assertStringContainsString('DONE', $output);
+        } else {
+            $this->assertStringContainsString('Copied File', $output);
+            $this->assertStringContainsString('Copied Directory', $output);
+        }
+
+        $this->assertFileExists(config_path('ampersand.php'));
+        $this->assertDirectoryExists(resource_path('views/vendor/ampersand'));
     }
 
     /**
