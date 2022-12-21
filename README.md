@@ -3,7 +3,7 @@
 # Ampersand
 
 [![Latest Version on Packagist](https://img.shields.io/packagist/v/olssonm/ampersand.svg?style=flat-square)](https://packagist.org/packages/olssonm/ampersand)
-[![Build Status](https://img.shields.io/github/actions/workflow/status/olssonm/ampersand/test.yml?branch=main&style=flat-square)](https://github.com/olssonm/ampersand/actions?query=workflow%3A%22Run+tests%22)
+[![Build Status](https://img.shields.io/github/actions/workflow/status/olssonm/ampersand/test.yml?branch=main&style=flat-square&label=tests)](https://github.com/olssonm/ampersand/actions?query=workflow%3A%22Run+tests%22)
 [![Software License](https://img.shields.io/badge/license-MIT-brightgreen.svg?style=flat-square)](LICENSE.md)
 <!-- [![Supported PHP-versions](https://img.shields.io/packagist/php-v/olssonm/ampersand?style=flat-square)](https://packagist.org/packages/olssonm/ampersand)-->
 
