@@ -16,7 +16,9 @@ class InstallTest extends TestCase
 
         $output = Artisan::output();
 
-        if ((int) app()->version()[0] >= 9) {
+        $version = explode('.', app()->version())[0];
+
+        if ((int) $version >= 9) {
             $this->assertStringContainsString('DONE', $output);
         } else {
             $this->assertStringContainsString('Copied File', $output);
