@@ -9,16 +9,16 @@ jobs:
         strategy:
             matrix:
                 include:
+                    - php: 8.3
+                      laravel: ^11.0
+                    - php: 8.2
+                      laravel: ^11.0
                     - php: 8.2
                       laravel: ^10.0
                     - php: 8.1
                       laravel: ^10.0
                     - php: 8.1
                       laravel: ^9.0
-                    - php: 8.1
-                      laravel: ^8.0
-                    - php: 8.0
-                      laravel: ^8.0
 
         name: PHP ${{ matrix.php }} - Laravel ${{ matrix.laravel }}
 
