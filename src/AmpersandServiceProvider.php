@@ -12,7 +12,7 @@ use Spatie\Sheets\PathParsers\SlugWithDateParser;
 
 class AmpersandServiceProvider extends ServiceProvider
 {
-    public function boot()
+    public function boot(): void
     {
         if ($this->app->runningInConsole()) {
             $this->publishes([
@@ -24,7 +24,7 @@ class AmpersandServiceProvider extends ServiceProvider
         }
     }
 
-    public function register()
+    public function register(): void
     {
         $this->setup();
         $this->registerRepositories();
@@ -33,20 +33,20 @@ class AmpersandServiceProvider extends ServiceProvider
         $this->app->register(RouteServiceProvider::class);
     }
 
-    private function setup()
+    private function setup(): void
     {
         $this->loadViewsFrom(__DIR__ . '/resources/views', 'ampersand');
 
         $this->mergeConfigFrom(__DIR__ . '/config/ampersand.php', 'ampersand');
 
         // Add a disk to the filesystem
-        $this->app['config']->set('filesystems.disks.ampersand::posts', [
+        config()->set('filesystems.disks.ampersand::posts', [
             'driver' => 'local',
             'root' => config('ampersand.posts_path')
         ]);
 
         // Overload sheets config to avoid local conflicts
-        $this->app['config']->set('sheets.collections', [
+        config()->set('sheets.collections', [
             'posts' => [
                 'disk' => 'ampersand::posts',
                 'sheet_class' => Post::class,
@@ -57,12 +57,12 @@ class AmpersandServiceProvider extends ServiceProvider
         ]);
     }
 
-    private function registerRepositories()
+    private function registerRepositories(): void
     {
         $this->app->singleton(PostRepository::class);
     }
 
-    private function registerCommands()
+    private function registerCommands(): void
     {
         $this->commands([
             NewPost::class
