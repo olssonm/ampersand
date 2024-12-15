@@ -20,7 +20,7 @@ class NewPost extends Command
         $file = sprintf('%s.%s.md', $date->format('Y-m-d'), Str::slug($title));
 
         $content = file_get_contents(__DIR__ . '/../resources/stubs/post.md');
-        $content = Str::of($content)->replace('%title%', $title)
+        $content = Str::of((string) $content)->replace('%title%', $title)
             ->replace('%date%', $date);
 
         $directory = config('ampersand.posts_path');
