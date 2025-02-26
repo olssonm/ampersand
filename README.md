@@ -155,4 +155,4 @@ Sites in the wild that uses Ampersand
 
 The MIT License (MIT). Please see the [LICENSE.md](LICENSE.md) for more information.
 
-© 2021 [Marcus Olsson](https://marcusolsson.me).
+© 2021-2025 [Marcus Olsson](https://marcusolsson.me).
