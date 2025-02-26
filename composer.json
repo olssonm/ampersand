@@ -10,13 +10,13 @@
     "license": "MIT",
     "minimum-stability": "stable",
     "require": {
-        "laravel/framework": "^9|^10|^11",
+        "laravel/framework": "^9|^10|^11|^12",
         "spatie/sheets": "^1.10"
     },
     "require-dev": {
         "orchestra/testbench": ">=6.15",
         "phpstan/phpstan": "^2.0",
-        "phpunit/phpunit": "<11",
+        "phpunit/phpunit": "*",
         "squizlabs/php_codesniffer": "^3.5"
     },
     "autoload": {
