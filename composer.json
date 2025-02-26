@@ -32,6 +32,7 @@
         "test": "./vendor/bin/phpunit --no-coverage",
         "phpsniff": "vendor/bin/phpcs --standard=\"PSR12\" ./src --ignore=./src/resources/*",
         "phpfix": "vendor/bin/phpcbf --standard=\"PSR12\" ./src --ignore=./src/resources/*",
+        "phpstan": "./vendor/bin/phpstan",
         "post-autoload-dump": [
             "@php ./vendor/bin/testbench package:discover --ansi"
         ]

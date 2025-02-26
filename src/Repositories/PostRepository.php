@@ -20,12 +20,13 @@ class PostRepository
     {
         $post = $this->all()->where('slug', $slug)->first();
 
+        /** @phpstan-ignore argument.type */
         throw_if(!$post, (new ModelNotFoundException())->setModel(Post::class, $slug));
 
         return $post;
     }
 
-    public function paginate($perPage = 10, $pageName = 'page'): LengthAwarePaginator
+    public function paginate(int $perPage = 10, string $pageName = 'page'): LengthAwarePaginator
     {
         $page = LengthAwarePaginator::resolveCurrentPage($pageName, 1);
 

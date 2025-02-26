@@ -2,6 +2,7 @@
 
 namespace Olssonm\Ampersand\Http\Controllers;
 
+use Illuminate\Http\Response;
 use Olssonm\Ampersand\Models\Post;
 use Olssonm\Ampersand\Repositories\PostRepository;
 
@@ -14,9 +15,9 @@ class PostController
         $this->postRepository = $postRepository;
     }
 
-    public function index()
+    public function index(): Response
     {
-        return view('ampersand::index', [
+        return response()->view('ampersand::index', [
             'posts' => $this->postRepository->paginate(
                 config('ampersand.per_page'),
                 config('ampersand.page_indicator'),
@@ -24,9 +25,9 @@ class PostController
         ]);
     }
 
-    public function show(Post $post)
+    public function show(Post $post): Response
     {
-        return view('ampersand::show', [
+        return response()->view('ampersand::show', [
             'post' => $post
         ]);
     }
