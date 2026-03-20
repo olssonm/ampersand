@@ -4,13 +4,14 @@ namespace Olssonm\Ampersand\Tests;
 
 use Olssonm\Ampersand\Models\Post;
 use Olssonm\Ampersand\Tests\TestCase;
+use PHPUnit\Framework\Attributes\Test;
 use Spatie\Sheets\ContentParsers\MarkdownWithFrontMatterParser;
 use Spatie\Sheets\PathParsers\SlugWithDateParser;
 use Illuminate\Support\Str;
 
 class CommandTest extends TestCase
 {
-    /** @test */
+    #[Test]
     public function it_can_create_new_post()
     {
         $title = 'Yet another test post';
