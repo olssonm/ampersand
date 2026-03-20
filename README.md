@@ -31,11 +31,11 @@ In `config/ampersand.php` you can now customize the settings to your liking. Vie
 
 ### ✏️ Writing posts
 
-####  Filename format
+#### Filename format
 
 All posts should be stores in your `posts_path`-directory with the filename format of `2021-03-30.my-post.md`, i.e. `{date:Y-m-d}.{slug}.md`.
 
-The slug is what determins at what URL your post will be available at.
+The slug is what determines at what URL your post will be available at.
 
 #### Artisan command
 
@@ -134,7 +134,7 @@ If you by any reason want to override this (for example if you want to have your
 // /routes/web.php
 use Olssonm\Ampersand\Http\Controllers\PostController;
 
-Route::group(['middleware' => 'can:read', function() {
+Route::group(['middleware' => 'can:read'], function() {
     Route::get('/articles', [PostController::class, 'index'])->name('article.index');
     Route::get('/articles/{post}', [PostController::class, 'show'])->name('article.show');
 }]);
@@ -155,4 +155,4 @@ Sites in the wild that uses Ampersand
 
 The MIT License (MIT). Please see the [LICENSE.md](LICENSE.md) for more information.
 
-© 2021-2025 [Marcus Olsson](https://marcusolsson.me).
+© 2021-2026 [Marcus Olsson](https://marcusolsson.me).
