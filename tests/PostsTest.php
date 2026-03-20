@@ -4,12 +4,13 @@ namespace Olssonm\Ampersand\Tests;
 
 use Olssonm\Ampersand\Models\Post;
 use Olssonm\Ampersand\Tests\TestCase;
+use PHPUnit\Framework\Attributes\Test;
 use Spatie\Sheets\ContentParsers\MarkdownWithFrontMatterParser;
 use Spatie\Sheets\PathParsers\SlugWithDateParser;
 
 class PostsTest extends TestCase
 {
-    /** @test */
+    #[Test]
     public function it_has_routes()
     {
         $this->assertEquals('http://localhost/blog', route('ampersand.index'));
@@ -17,13 +18,13 @@ class PostsTest extends TestCase
         $this->assertEquals('http://localhost/blog/post-2', route('ampersand.show', ['post' => 'post-2']));
     }
 
-    /** @test */
+    #[Test]
     public function it_has_the_correct_number_of_posts()
     {
         $this->assertEquals(2, Post::all()->count());
     }
 
-    /** @test */
+    #[Test]
     public function it_has_post_with_correct_attributes()
     {
         $post = Post::find('post-2');
@@ -35,7 +36,7 @@ class PostsTest extends TestCase
         $this->assertStringContainsString('<p>This is just some random content.</p', (string) $post->contents);
     }
 
-    /** @test */
+    #[Test]
     public function it_can_paginate()
     {
         $posts = Post::paginate(1);

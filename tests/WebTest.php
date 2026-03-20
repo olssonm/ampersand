@@ -4,12 +4,13 @@ namespace Olssonm\Ampersand\Tests;
 
 use Olssonm\Ampersand\Models\Post;
 use Olssonm\Ampersand\Tests\TestCase;
+use PHPUnit\Framework\Attributes\Test;
 use Spatie\Sheets\ContentParsers\MarkdownWithFrontMatterParser;
 use Spatie\Sheets\PathParsers\SlugWithDateParser;
 
 class WebTest extends TestCase
 {
-    /** @test */
+    #[Test]
     public function it_can_show_index()
     {
         $response = $this->get(route('ampersand.index'));
@@ -21,7 +22,7 @@ class WebTest extends TestCase
             ));
     }
 
-    /** @test */
+    #[Test]
     public function it_can_show_single_post()
     {
         $response = $this->get(route('ampersand.show', Post::all()->first()));
@@ -30,7 +31,7 @@ class WebTest extends TestCase
             ->assertViewHas('post', Post::all()->first());
     }
 
-    /** @test */
+    #[Test]
     public function it_has_pagination_links()
     {
         $this->app['config']->set('ampersand.per_page', 1);
@@ -45,7 +46,7 @@ class WebTest extends TestCase
             ->assertSee('?page=1');
     }
 
-    /** @test */
+    #[Test]
     public function it_shows_404()
     {
         $response = $this->get(route('ampersand.show', 'no-post'));
